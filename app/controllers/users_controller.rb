@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
 
     def show
-        user = User.find(params[:id])
-        render json: user
+        user = User.find_by id:params[:id]
+        if user
+           render json: user
+        else 
+           render json: {error: 'Error findind account'}
+        end
     end
+
+
 end
