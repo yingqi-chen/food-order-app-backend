@@ -1,3 +1,7 @@
 class DishesController < ApplicationController
-    hfjahjfhajdhkfajfhdjkahjkd
+
+    def index
+        dishes = Dish.all
+        render json: dishes
+    end
 end
