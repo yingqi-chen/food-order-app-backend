@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     def show
         user = User.find_by id:params[:id]
         if user
-           render json: user
+           render json: user, include: ['order', 'favorites','orders.dishes','favorites.dishes']
         else 
            render json: {error: 'Error findind account'}
         end
