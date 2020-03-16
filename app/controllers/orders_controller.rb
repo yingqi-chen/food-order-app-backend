@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
     def create
         order = @user.orders.new(order_params)    
         order.date = DateTime.now
-        order.status = "not-submitted"
+        order.status = "submitted"
         if order.save
             render json: order
         else
