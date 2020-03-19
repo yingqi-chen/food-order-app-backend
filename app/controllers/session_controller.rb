@@ -5,7 +5,7 @@ class SessionController < ApplicationController
             session[:user_id] = @user.id
             render json: @user
         else
-            render json: {error: "We don't find such an user according to your information,please try again."}
+            render json: {status: "error", message: "We don't find such an user according to your information,please try again."}
         end
     end
 end
