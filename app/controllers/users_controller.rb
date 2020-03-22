@@ -11,8 +11,10 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(user_params)
-        if user
-            render json: user, include: ['order', 'favorites','orders.dishes','favorites.dishes']
+        if user.save
+            payload = user.id
+            token = encode_token(payload)
+            render json: {user:user, jwt:token}
         else
             render json: {error: 'Error creating account'}
         end
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:name, :password, :email)
+      params.permit(:name, :password, :email)
     end
 
 end
