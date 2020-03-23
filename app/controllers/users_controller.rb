@@ -15,7 +15,7 @@ class UsersController < ApplicationController
             payload = user.id
             token = encode_token(payload)
             render json: {
-                user:user, include: ['order', 'favorites','orders.dishes','favorites.dishes'] 
+                user:user, include: ['order', 'favorites','orders.dishes','favorites.dishes'], 
                 jwt:token
             }
         else

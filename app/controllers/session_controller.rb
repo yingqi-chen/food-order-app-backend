@@ -12,4 +12,9 @@ class SessionController < ApplicationController
             render json: {status: "error", message: "We don't find such an user according to your information,please try again."}
         end
     end
+
+
+    def auto_login
+        binding.pry
+    end
 end
