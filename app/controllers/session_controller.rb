@@ -15,6 +15,10 @@ class SessionController < ApplicationController
 
 
     def auto_login
-        binding.pry
+        if session_user
+            render json: session_user
+        else
+            render json: {errors: "No User Logged In."}
+        end     
     end
 end
