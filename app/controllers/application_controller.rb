@@ -22,7 +22,6 @@ class ApplicationController < ActionController::API
         if auth_header_token
           begin
             JWT.decode(auth_header_token, 'secret',true, algorithm: 'HS256')
-            binding.pry
           rescue JWT::DecodeError
             []
           end
