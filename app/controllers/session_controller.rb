@@ -4,19 +4,24 @@ class SessionController < ApplicationController
         if user && user.authenticate(params[:password])
             payload = {user_id: user.id}
             token = encode_token(payload)
+            user_json = user.to_json(:include => [
+                :favorites=>{:include=> :dishes},
+                :orders=>{:include=> :dishes}])
             render json: {
-                user: user, include: ['order', 'favorites','orders.dishes','favorites.dishes'], 
-                jwt:token
-            }
+                user: user_json,               
+                # ['order', 'favorites','orders.dishes','favorites.dishes'],
+                jwt: token}
         else
             render json: {status: "error", message: "We don't find such an user according to your information,please try again."}
         end
     end
+                                
 
+    
 
     def auto_login
         if session_user
-            render json: session_user, include: ['order', 'favorites','orders.dishes','favorites.dishes'] 
+            render json: session_user, include: ['order', 'favorites','orders.dishes','favorites.dishes']
         else
             render json: {errors: "No User Logged In."}
         end     
