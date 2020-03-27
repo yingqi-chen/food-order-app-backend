@@ -21,8 +21,8 @@ administrator = User.create(name:"admin", email: "admin@123.com", password:"pass
 user1 = User.create(name:"u1" ,email: "u1@123.com", password: "123")
 user2 = User.create(name: "u2" ,email: "u2@123.com", password: "123")
 
-order1 = Order.create(date: DateTime.new(2001,3,5), user_id: user1.id, status: "finished", total: 27)
-order2 = Order.create(date:DateTime.new(2002,3,5), user_id: user2.id,status: "submitted",total: 15)
+order1 = Order.create(date: DateTime.new(2001,3,5), user_id: user1.id, status: "finished")
+order2 = Order.create(date:DateTime.new(2002,3,5), user_id: user2.id,status: "submitted")
 
 favorite1 = Favorite.create(name: "combination", user_id: user1.id)
 favorite2 = Favorite.create(name: "seafood", user_id: user2.id)

@@ -8,5 +8,9 @@ class Order < ApplicationRecord
     scope :submitted,-> { where(status: 'submitted') }
     scope :finished,-> { where(status: 'finished') }
 
+    def total
+        self.dishes.reduce(0){|sum,dish|sum+dish.price}
+    end
+
 
 end
