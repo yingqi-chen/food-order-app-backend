@@ -4,6 +4,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.datetime :date
       t.string :status
       t.integer :user_id
+      t.float :total
 
       t.timestamps
     end

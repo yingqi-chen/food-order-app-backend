@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :dishes
   resources :users do
     resources :orders
-    resources :favorites
   end
 
   post '/login', to: "session#login"

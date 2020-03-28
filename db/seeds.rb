@@ -17,25 +17,24 @@ dish8 = Dish.create(name: "Happy family", image:"happy-family.jpg",price: 15 )
 dish9 = Dish.create(name: "Live Lobster with ginger sauce", image: "lobster-ginger-saurce.jpg",price: 50 )
 dish10 = Dish.create(name: "Steam whole fish", image: "steam-whole-fish.jpg",price:32 )
 
-administrator = User.create(name:"admin", email: "admin@123.com", password:"pass")
 user1 = User.create(name:"u1" ,email: "u1@123.com", password: "123")
 user2 = User.create(name: "u2" ,email: "u2@123.com", password: "123")
 
-order1 = Order.create(date: DateTime.new(2001,3,5), user_id: user1.id, status: "finished")
-order2 = Order.create(date:DateTime.new(2002,3,5), user_id: user2.id,status: "submitted")
+order1 = Order.create(date: DateTime.new(2001,3,5), user_id: user1.id, status: "finished", total:27 )
+order2 = Order.create(date:DateTime.new(2002,3,5), user_id: user2.id,status: "submitted", total: 13 )
+order3 = Order.create(date: DateTime.new(2001,3,5), user_id: user1.id, status: "finished", total: 30 )
 
-favorite1 = Favorite.create(name: "combination", user_id: user1.id)
-favorite2 = Favorite.create(name: "seafood", user_id: user2.id)
+
 
 order_dish1 = OrderDish.create(order_id: order1.id, dish_id: dish1.id )
 order_dish2 = OrderDish.create(order_id: order2.id, dish_id: dish2.id )
 order_dish3 = OrderDish.create(order_id: order1.id, dish_id: dish3.id )
+order_dish4 = OrderDish.create(order_id: order3.id, dish_id: dish3.id )
+order_dish5 = OrderDish.create(order_id: order3.id, dish_id: dish8.id )
 
-favorite_dish1 = FavoriteDish.create(favorite_id: favorite1.id,dish_id: dish8.id )
-favorite_dish2 = FavoriteDish.create(favorite_id: favorite1.id,dish_id: dish6.id )
-favorite_dish3 = FavoriteDish.create(favorite_id: favorite2.id,dish_id: dish10.id )
-favorite_dish4 = FavoriteDish.create(favorite_id: favorite2.id,dish_id: dish9.id )
-favorite_dish5 = FavoriteDish.create(favorite_id: favorite2.id,dish_id: dish4.id )
+
+
+
 
 
 
