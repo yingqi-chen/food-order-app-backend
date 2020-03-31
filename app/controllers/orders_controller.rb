@@ -14,9 +14,14 @@ class OrdersController < ApplicationController
       end
     
     def create
-        order = @user.orders.new(order_params)    
+        order = @user.orders.new    
         order.date = DateTime.now
         order.status = "submitted"
+        order.total = order_params[:total]
+        order_params[:dishes].each do |d|
+          dish=Dish.find_by name: d[:name]
+          order.dishes.push(dish)
+        end  
         if order.save
             render json: order
         else
@@ -33,7 +38,7 @@ class OrdersController < ApplicationController
     
     
       def order_params
-        params.require(:order).permit(:user_id, :date, :total, :dishes=>[
+        params.permit(:user_id, :date, :total, :dishes=>[
             :name,
             :image
         ])
