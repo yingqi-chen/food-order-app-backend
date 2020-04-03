@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     def create
         user = User.new(user_params)
         if user.save
-            payload = user.id
+            payload = {user_id: user.id}
             token = encode_token(payload)
             render json: {
                 user:user, include: ['order', 'favorites','orders.dishes','favorites.dishes'], 
