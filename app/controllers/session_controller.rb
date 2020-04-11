@@ -8,7 +8,6 @@ class SessionController < ApplicationController
                 :orders=>{:include=> :dishes}])
             render json: {
                 user: user_json,               
-                # ['order', 'favorites','orders.dishes','favorites.dishes'],
                 jwt: token}
         else
             render json: {status: "error", message: "We don't find such an user according to your information,please try again."}

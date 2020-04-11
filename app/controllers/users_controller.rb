@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     def show
         user = User.find_by id:params[:id]
         if user
-           render json: user, include: ['order', 'favorites','orders.dishes','favorites.dishes']
+           render json: user, include: ['orders','orders.dishes']
         else 
            render json: {error: 'Error findind account'}
         end
@@ -15,8 +15,9 @@ class UsersController < ApplicationController
             payload = {user_id: user.id}
             token = encode_token(payload)
             render json: {
-                user:user, include: ['order', 'favorites','orders.dishes','favorites.dishes'], 
-                jwt:token
+                :user => user.to_json(:include => [
+                    :orders=>{:include=> :dishes}]),
+                :jwt => token
             }
         else
             render json: {error: 'Error creating account'}
