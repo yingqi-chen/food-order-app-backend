@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
       end
     
     def create
+       binding.pry
         order = @user.orders.new    
         order.date = DateTime.now
         order.status = "submitted"
