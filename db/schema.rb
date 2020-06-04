@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_03_27_223739) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dishes", force: :cascade do |t|
     t.string "name"
     t.string "image"
