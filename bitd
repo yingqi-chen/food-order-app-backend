@@ -1,0 +1,20 @@
+
+[1mFrom:[0m /mnt/c/Users/CACABUTT/foooood/food-order-app-backend/app/controllers/orders_controller.rb @ line 17 OrdersController#create:
+
+    [1;34m16[0m: [32mdef[0m [1;34mcreate[0m
+ => [1;34m17[0m:     binding.pry
+    [1;34m18[0m:     order = @user.orders.new    
+    [1;34m19[0m:     order.date = [1;34;4mDateTime[0m.now
+    [1;34m20[0m:     order.status = [31m[1;31m"[0m[31msubmitted[1;31m"[0m[31m[0m
+    [1;34m21[0m:     order.total = order_params[[33m:total[0m]
+    [1;34m22[0m:     order_params[[33m:dishes[0m].each [32mdo[0m |d|
+    [1;34m23[0m:       dish=[1;34;4mDish[0m.find_by [35mname[0m: d[[33m:name[0m]
+    [1;34m24[0m:       order.dishes.push(dish)
+    [1;34m25[0m:     [32mend[0m  
+    [1;34m26[0m:     [32mif[0m order.save
+    [1;34m27[0m:         render [35mjson[0m: order
+    [1;34m28[0m:     [32melse[0m
+    [1;34m29[0m:         render [35mjson[0m: {[35merror[0m: [31m[1;31m"[0m[31mError creating orders.[1;31m"[0m[31m[0m}
+    [1;34m30[0m:     [32mend[0m
+    [1;34m31[0m: [32mend[0m
+
