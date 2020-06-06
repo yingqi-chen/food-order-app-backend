@@ -1,24 +1,32 @@
-# README
+# food-order-app-frontend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+This is a mock e-commerce site that allows people to order food online.  It is a combination of a react-based frontend and a rails API backend. 
+You can sign up, log in, go to the `Homepage` to order food and go to `My orders` page to check out your order histories and submit your current order. 
 
-* Ruby version
+The website is here: https://newchinacafe-ae234.web.app/
 
-* System dependencies
+This backend is deployed here: https://powerful-oasis-63354.herokuapp.com/
 
-* Configuration
+The frontend code is here: https://github.com/chanwkkk/food-order-app-frontend 
 
-* Database creation
+## Installation
 
-* Database initialization
+Put this in your terminal:
 
-* How to run the test suite
+```
+git@github.com:chanwkkk/food-order-app-backend.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+And then go inside the folder by typing this in your terminal:
+```
+cd food-order-app-backend
+```
 
-* Deployment instructions
+Then run `bundle install` to install all gems and `rails s` to can start the server in your local computer.
 
-* ...
+
+
+
+
