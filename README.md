@@ -1,4 +1,4 @@
-# food-order-app-frontend
+# food-order-app-backend
 
 ## Introduction
 
@@ -24,7 +24,7 @@ And then go inside the folder by typing this in your terminal:
 cd food-order-app-backend
 ```
 
-Then run `bundle install` to install all gems and `rails s` to can start the server in your local computer.
+Then run `bundle install` to install all gems and `rails s` to start the server in your local computer.
 
 
 
